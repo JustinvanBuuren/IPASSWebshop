@@ -4,29 +4,39 @@
     <meta charset="UTF-8">
     <title>IPASS Gameshop</title>
 
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<div id="container"> <!-- container met header, cssmenu, content en footer regel -->
 
-    <div id="header"> <!-- header met navigatiebalk, pf en naam -->
+<header>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapsable" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">
+                    IPASS Gameshop
+                </a>
+            </div>
 
-        <img class="headerpic" src="img/no%20pf.jpg" width="60" height="60">
-        
-        <div class="header1">
-            <p> Justin </p>
+            <div class="collapse navbar-collapse" id="navbar-collapsable">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="account.html">Account</a></li>
+                    <li><a href="about.html">Over ons</a></li>
+                </ul>
+            </div>
         </div>
+    </nav>
+</header>
 
-
-        <ul class="top-menu">
-            <li class="active"><a href="Homepagina.html">Home</a></li>
-            <li><a href="gamespagina.html">Games</a></li>
-            <li><a href="accountpagina.html">Account</a></li>
-            <li><a href="overonspagina.html">Over ons</a></li>
-        </ul>
-    </div> <!-- einde header -->
-
-
+<div class="container">
     <h1>Justin's speelhoek</h1> <!-- Titel met tekst & hyperlinks. -->
     <img class="hufoto" src="img/hu.png" width="125" height="125">
     <p> Welkom op de enige echte gamewebshop. Ik verkoop hier allerlei soorten spellen voor verschillende platformen.
@@ -36,40 +46,31 @@
 
 
     <p>Deze homepagina geeft een in intro voor mijn website.<br>
-        Op de <span><a class="hyperlink" href="gamespagina.html">Games</a></span> pagina je alle games zien die mijn
+        Op de <span><a class="hyperlink" href="games.html">Games</a></span> pagina je alle games zien die mijn
         webshop verkoopt. <br/>
-        Op de <span><a class="hyperlink" href="accountpagina.html">Account</a></span> pagina kun je alle gegevens zien
+        Op de <span><a class="hyperlink" href="account.html">Account</a></span> pagina kun je alle gegevens zien
         voor jou accosunt en aanpassen. Dit is alleen mogelijk als je ingelogd ben. Verder kan je
         op deze pagina ook een account aanmaken als je nog geen account hebt.
-        Op de <span><a class="hyperlink" href="overonspagina.html">Over ons</a></span> pagina vind je informatie over de
+        Op de <span><a class="hyperlink" href="about.html">Over ons</a></span> pagina vind je informatie over de
         webshop, wie ik ben en waarom ik deze webshop gemaakt heb.
     </p>
+</div>
 
 
-    <center>
-    </center> <!-- einde Titel met tekst & afbeeldingen -->
 
-
-    <div id="footer"> <!-- begin van de footer -->
-        <hr></hr>
-
-        <div class="footercenter">
-            <center>
-                <p>Justin's speelhoek; voor de beste games tegen een goedkope prijs!</p>
-        </div>
-        </center>
-        <br>
-
-        <div class="footer1">
-            <p>Auteur: Justin van Buuren</p>
-        </div>
-
-        <div class="footer2">
-            <p> Datum: 17-6-2019</p>
-        </div>
-
-    </div> <!-- einde footer -->
-</div> <!-- einde container -->
+<footer class="footer-basic-centered">
+    <p class="footer-company-motto">LIVE IN OUR WORLD, PLAY IN OURS.</p>
+    <p class="footer-links">
+        <a href="#">Home</a>
+        ·
+        <a href="#">Games</a>
+        ·
+        <a href="#">Account</a>
+        ·
+        <a href="#">Over ons</a>
+    </p>
+    <p class="footer-company-name">IPASS Gameshop © 2019</p>
+</footer>
 
 </body>
 </html>
