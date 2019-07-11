@@ -3,55 +3,269 @@
 
 
 <head>
-	<title> HTML HU opdracht</title>
-	<link href="css/style.css" rel="stylesheet" type="text/css" />
-	<link href="css/datumprikker.css" rel="stylesheet"/>
 	<meta charset="UTF-8">
-	</head>
+	<title>IPASS Gameshop</title>
 
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/style.css" />
+
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main-script.js"></script>
+</head>
 <body>
 
-<div id="container"> <!-- container met header, cssmenu, content en footer regel -->
+<header>
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapsable" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="#" class="navbar-brand">
+					IPASS Games
+				</a>
+			</div>
 
-<div id="header">  <!-- header met navigatiebalk, pf en naam -->
-	
-	<img class="headerpic" src="img/no%20pf.jpg" width="60" height="60">
-	
-	<div class="header1">
-	<p> Justin </p>
+			<div class="collapse navbar-collapse" id="navbar-collapsable">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Home <span class="sr-only">(current)</span></a></li>
+					<li class="active"><a href="games.html">Games</a></li>
+					<li><a href="account.html">Account</a></li>
+					<li><a href="about.html">Over ons</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>
+
+
+<div class="container">
+
+	<div class="row">
+
+		<div class="col-md-3">
+			<p class="lead">IPASS Games</p>
+			<div class="list-group">
+				<a href="#" class="list-group-item">PlayStation 4</a>
+				<a href="#" class="list-group-item">PC (Windows)</a>
+				<a href="#" class="list-group-item">Nintendo Switch</a>
+				<a href="#" class="list-group-item">Xbox One</a>
+				<a href="#" class="list-group-item">Mac</a>
+				<a href="#" class="list-group-item">Nintendo 3DS</a>
+			</div>
+		</div>
+
+		<div class="col-md-9">
+
+			<div class="row carousel-holder">
+
+				<div class="col-md-12">
+					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+						</ol>
+						<div class="carousel-inner">
+							<div class="item active">
+								<img class="slide-image" src="http://placehold.it/800x300" alt="">
+							</div>
+							<div class="item">
+								<img class="slide-image" src="http://placehold.it/800x300" alt="">
+							</div>
+							<div class="item">
+								<img class="slide-image" src="http://placehold.it/800x300" alt="">
+							</div>
+						</div>
+						<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+							<span class="glyphicon glyphicon-chevron-left"></span>
+						</a>
+						<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</a>
+					</div>
+				</div>
+
+			</div>
+			<br><br>
+
+			<div class="row" id="game-overzicht">
+
+
+
+				<div class="col-sm-4 col-lg-4 col-md-4">
+					<div class="thumbnail">
+						<img src="http://placehold.it/320x150" alt="">
+						<div class="caption">
+							<h4 class="pull-right">$64.99</h4>
+							<h4><a href="#">Second Product</a>
+							</h4>
+							<p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</div>
+						<div class="ratings">
+							<p class="pull-right">12 reviews</p>
+							<p>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star-empty"></span>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-4 col-lg-4 col-md-4">
+					<div class="thumbnail">
+						<img src="http://placehold.it/320x150" alt="">
+						<div class="caption">
+							<h4 class="pull-right">$74.99</h4>
+							<h4><a href="#">Third Product</a>
+							</h4>
+							<p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</div>
+						<div class="ratings">
+							<p class="pull-right">31 reviews</p>
+							<p>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star-empty"></span>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-4 col-lg-4 col-md-4">
+					<div class="thumbnail">
+						<img src="http://placehold.it/320x150" alt="">
+						<div class="caption">
+							<h4 class="pull-right">$84.99</h4>
+							<h4><a href="#">Fourth Product</a>
+							</h4>
+							<p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</div>
+						<div class="ratings">
+							<p class="pull-right">6 reviews</p>
+							<p>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star-empty"></span>
+								<span class="glyphicon glyphicon-star-empty"></span>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-4 col-lg-4 col-md-4">
+					<div class="thumbnail">
+						<img src="http://placehold.it/320x150" alt="">
+						<div class="caption">
+							<h4 class="pull-right">$94.99</h4>
+							<h4><a href="#">Fifth Product</a>
+							</h4>
+							<p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</div>
+						<div class="ratings">
+							<p class="pull-right">18 reviews</p>
+							<p>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star-empty"></span>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-4 col-lg-4 col-md-4">
+					<h4><a href="#">Like this template?</a>
+					</h4>
+					<p>If you like this template, then check out <a target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this tutorial</a> on how to build a working review system for your online store!</p>
+					<a class="btn btn-primary" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View Tutorial</a>
+				</div>
+
+			</div>
+
+		</div>
+
 	</div>
-	
-	
-	<ul class="top-menu">
-	<li><a href="Homepagina.html">Home</a></li>
-	<li class="active"><a href="games.html">Games</a></li>
-	<li><a href="account.html">Account</a></li>
-	<li><a href="about.html">Over ons</a></li>
-	</ul>
-</div> <!-- einde header -->
 
-<h1> Games </h1>
-
-<p> Hier moeten alle games ingeladen worden </p>
-
-
-<div id="footer">
-<hr></hr>
-
-<center><div class="footercenter">
-<p>Justin's speelhoek; voor de beste games tegen een goedkope prijs!</p>
 </div>
-<br>
 
-	<div class="footer1">
-		<p>Auteur: Justin van Buuren</p>
-	</div>
 
-	<div class="footer2">
-	<p> Datum: 17-6-2019</p>
-	</div>
-</center>
-</div>
+<footer class="footer-basic-centered">
+	<p class="footer-company-motto">LIVE IN YOUR WORLD, PLAY IN OURS.</p>
+	<p class="footer-links">
+		<a href="#">Home</a>
+		·
+		<a href="#">Games</a>
+		·
+		<a href="#">Account</a>
+		·
+		<a href="#">Over ons</a>
+	</p>
+	<p class="footer-company-name">IPASS Gameshop © 2019</p>
+</footer>
+
+<script>
+	$("#game-overzicht").html(loader());
+	$(document).ready(function() {
+		$.ajax({
+			url: apiGamesUrl,
+			type: 'GET',
+			contentType: 'application/json',
+			crossDomain: true,
+			success: function(response) {
+				$("#game-overzicht").html('');
+				$(response).each(function(index, item){
+					let game = {
+						publicId: item.publicId,
+						bestelStatus: item.bestelStatus,
+						genre: item.genre,
+						platform: item.platform,
+						prijs: item.prijs,
+						titel: item.titel,
+						voorraad: item.voorraad,
+						omschrijving: (item.omschrijving != null ? item.omschrijving : 'Geen omschrijving.')
+					};
+					printGame(game);
+				});
+			},
+			error: function() {
+				$("#game-overzicht").html("De games konden niet worden opgehaald.");
+			}
+		})
+	});
+
+	function printGame(game) {
+		let html = '<div class="col-sm-4 col-lg-4 col-md-4">' +
+						'<div class="thumbnail">' +
+							'<a href="game.html?id='+game.publicId+'"><img src="http://placehold.it/320x150" alt=""></a>' +
+							'<div class="caption">' +
+								'<h4 class="pull-right">' + currencyFormat(game.prijs) + '</h4>' +
+								'<h4><a href="game.html?id='+game.publicId+'">' + game.titel + '</a></h4>' +
+								'<p>' + limitText(game.omschrijving, 100) + '</p>' +
+								'<p>' +
+								'<b>Platform: ' + game.platform + '</b><br>' +
+								'<b>Genre: ' + game.genre + '</b>' +
+								'</p>' +
+							'</div>' +
+							'<div class="ratings">' +
+								' <a href="#" class="text-right btn btn-lg btn-success"><i class="glyphicon glyphicon-shopping-cart"></i></a>' +
+							'</div>' +
+						'</div>' +
+					'</div>';
+		$("#game-overzicht").append(html);
+	}
+</script>
 
 </body>
 </html>

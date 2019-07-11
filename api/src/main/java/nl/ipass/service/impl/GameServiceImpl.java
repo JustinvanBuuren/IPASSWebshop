@@ -31,6 +31,7 @@ public class GameServiceImpl implements GameService {
             statement.setString(5, game.getGenre());
             statement.setString(6, game.getPlatform());
             statement.setInt(7, game.getVoorraad());
+            statement.setString(8, game.getOmschrijving());
 
             statement.execute();
 
@@ -56,7 +57,7 @@ public class GameServiceImpl implements GameService {
     @Override
     public Game findById(String id) throws WebAppException {
         try {
-            String query = "SELECT publicId, titel, bestelStatus, prijs, genre, platform, voorraad FROM game WHERE publicId = ?";
+            String query = "SELECT publicId, titel, bestelStatus, prijs, genre, platform, voorraad, omschrijving FROM game WHERE publicId = ?";
 
             PreparedStatement statement = DBConnection.prepareStatement(query);
             statement.setString(1, id);
@@ -64,7 +65,6 @@ public class GameServiceImpl implements GameService {
             Game game = new Game();
 
             if(!rs.next()){
-                System.out.println("tasdf");
                 throw new IllegalArgumentException("Er is geen game gevonden.");
             } else {
                 do {
@@ -88,12 +88,13 @@ public class GameServiceImpl implements GameService {
         game.setGenre(rs.getString("genre"));
         game.setPlatform(rs.getString("platform"));
         game.setVoorraad(rs.getInt("voorraad"));
+        game.setOmschrijving(rs.getString("omschrijving"));
     }
 
     @Override
     public List<Game> findAll() throws WebAppException {
         try {
-            String query = "SELECT publicId, titel, bestelStatus, prijs, genre, platform, voorraad FROM game";
+            String query = "SELECT publicId, titel, bestelStatus, prijs, genre, platform, voorraad, omschrijving FROM game";
 
             PreparedStatement statement = DBConnection.prepareStatement(query);
             ResultSet rs = statement.executeQuery();

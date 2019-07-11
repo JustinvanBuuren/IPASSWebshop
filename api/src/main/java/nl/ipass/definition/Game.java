@@ -8,6 +8,7 @@ public class Game {
     private String genre;
     private String platform;
     private Integer voorraad;
+    private String omschrijving;
 
     public String getPublicId() {
         return this.publicId;
@@ -81,6 +82,14 @@ public class Game {
             throw new IllegalArgumentException("Voorraad mag niet lager zijn dan 0.");
         }
         this.voorraad = voorraad;
+    }
+
+    public String getOmschrijving() {
+        return this.omschrijving;
+    }
+
+    public void setOmschrijving(String omschrijving) {
+        this.omschrijving = omschrijving;
     }
 
     public String toString() {

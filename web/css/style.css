@@ -68,3 +68,11 @@ footer {
         line-height: 1.8;
     }
 }
+
+.leverstatus {
+    text-transform: capitalize;
+}
+
+.required {
+    color: red;
+}

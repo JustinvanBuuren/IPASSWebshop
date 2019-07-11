@@ -6,27 +6,25 @@ import nl.ipass.service.GameService;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
+import javax.ws.rs.core.Response;
 
 @Path("games")
 public class GamesEndpoint {
 
-    private GameService gameService;
-
-    public GamesEndpoint() {
-        // Deze constructor is bewust leeg gelaten
-    }
-
     @Inject
-    public GamesEndpoint(GameService gameService) {
-        this.gameService = gameService;
-    }
-
+    private GameService gameService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Game> findAllGames() {
-        return gameService.findAll();
+    public Response findAllGames() {
+        return Response
+                .status(200)
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Credentials", "true")
+                .header("Access-Control-Allow-Methods",
+                        "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+                .entity(gameService.findAll())
+                .build();
     }
 
     @GET

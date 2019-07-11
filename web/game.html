@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>IPASS Gameshop</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/main-script.js"></script>
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapsable" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">
+                    IPASS Gameshop
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapsable">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home <span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="games.html">Games</a></li>
+                    <li><a href="account.html">Account</a></li>
+                    <li><a href="about.html">Over ons</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-3">
+            <a href="games.html"><i class="glyphicon glyphicon-circle-arrow-left"></i> Terug naar het overzicht</a>
+        <br><br>
+            <p class="lead">IPASS Games</p>
+            <div class="list-group">
+                <a href="#" class="list-group-item">PlayStation 4</a>
+                <a href="#" class="list-group-item">PC (Windows)</a>
+                <a href="#" class="list-group-item">Nintendo Switch</a>
+                <a href="#" class="list-group-item">Xbox One</a>
+                <a href="#" class="list-group-item">Mac</a>
+                <a href="#" class="list-group-item">Nintendo 3DS</a>
+            </div>
+        </div>
+        <!-- /.col-lg-3 -->
+
+        <div class="loader"></div>
+        <div class="col-lg-9">
+
+            <div class="card mt-4">
+                <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
+                <div class="card-body">
+                    <h3 class="card-title game-titel"></h3>
+                    <h4 class="game-prijs"></h4>
+                    <br>
+                    <h4>Productinformatie</h4>
+                    <p class="card-text game-omschrijving"></p>
+                    <p>
+                        <b>Genre: <span class="genre"></span></b><br>
+                        <b>Platform: <span class="platform"></span></b><br>
+                        <b>Voorraad: Nog <span class="voorraad"></span> stuks</b><br>
+                        <b>Leverstatus: <span class="leverstatus"></span></b><br>
+                    </p>
+                    <a href="#" class="btn btn-lg btn-success"><i class="glyphicon glyphicon-shopping-cart"></i> Toevoegen aan winkelmand</a>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer class="footer-basic-centered">
+    <p class="footer-company-motto">LIVE IN YOUR WORLD, PLAY IN OURS.</p>
+    <p class="footer-links">
+        <a href="#">Home</a>
+        ·
+        <a href="#">Games</a>
+        ·
+        <a href="#">Account</a>
+        ·
+        <a href="#">Over ons</a>
+    </p>
+    <p class="footer-company-name">IPASS Gameshop © 2019</p>
+</footer>
+
+<script>
+    $(".loader").html(loader());
+    $(".col-lg-9").css("opacity", "0");
+    $(document).ready(function() {
+        $.ajax({
+            url: apiGamesUrl + '/' + getUrlParameter('id'),
+            type: 'GET',
+            contentType: 'application/json',
+            crossDomain: true,
+            success: function(game) {
+                printGame(game);
+                $(".loader").css("display", "none");
+                $(".col-lg-9").css("opacity", "1");
+            },
+            error: function(response) {
+                $("#game-overzicht").html("De games konden niet worden opgehaald.");
+            }
+        })
+    });
+
+    function printGame(game) {
+        $(".game-titel").text(game.titel);
+        $(".game-prijs").text(currencyFormat(game.prijs));
+        $(".game-omschrijving").text(game.omschrijving);
+        $(".genre").text(game.genre);
+        $(".platform").text(game.platform);
+        $(".voorraad").text(game.voorraad);
+        $(".leverstatus").text(game.bestelStatus);
+    }
+</script>
+
+</body>
+</html>
