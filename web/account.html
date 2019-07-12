@@ -1,57 +1,83 @@
 <!DOCTYPE html>
 <html>
-
-
 <head>
-	<title> HTML HU opdracht</title>
-	<link href="css/style.css" rel="stylesheet" type="text/css" />
-	<link href="css/datumprikker.css" rel="stylesheet"/>
-	<meta charset="UTF-8">
-	</head>
+    <meta charset="UTF-8">
+    <title>IPASS Gameshop</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/main-script.js"></script>
+</head>
 
 <body>
 
-<div id="container"> <!-- container met header, cssmenu, content en footer regel -->
+<header>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapsable" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">
+                    IPASS Games
+                </a>
+            </div>
 
-<div id="header">
-	
-	<img class="headerpic" src="img/no%20pf.jpg" width="60" height="60">
-	
-	<div class="header1">
-	<p> Justin </p>
-	</div>
-	
-	
-	<ul class="top-menu">
-	<li><a href="Homepagina.html">Home</a></li>
-	<li><a href="games.html">Games</a></li>
-	<li class="active"><a href="account.html">Account</a></li>
-	<li><a href="about.html">Over ons</a></li>
-	</ul>
+            <div class="collapse navbar-collapse" id="navbar-collapsable">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home <span class="sr-only">(current)</span></a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li class="active"><a href="account.html">Account</a></li>
+                    <li><a href="about.html">Over ons</a></li>
+                    <!-- check of de gebruiker admin is <li><a href="admin.html">Admin panel</a></li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="login-form">
+            <form action="#" method="post">
+                <h2 class="text-center">Inloggen</h2>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Email adres" required="required">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Wachtwoord" required="required">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Inloggen</button>
+                </div>
+            </form>
+            <p class="text-center"><a href="account-register.html">Een account registreren</a></p>
+        </div>
+
+    </div>
 </div>
 
-<h1> Account</h1>
-
-<p> Hier moeten accountgegevens ingeladen worden, of een optie komen om een account te maken</p>
-
-<div id="footer">
-<hr></hr>
-
-<center><div class="footercenter">
-<p>Justin's speelhoek; voor de beste games tegen een goedkope prijs!</p>
-</div>
-<br>
-
-	<div class="footer1">
-		<p>Auteur: Justin van Buuren</p>
-	</div>
-
-	<div class="footer2">
-	<p> Datum: 17-6-2019</p>
-	</div>
-</center>
-</div>
-</div>
+<footer class="footer-basic-centered">
+    <p class="footer-company-motto">LIVE IN YOUR WORLD, PLAY IN OURS.</p>
+    <p class="footer-links">
+        <a href="#">Home</a>
+        ·
+        <a href="#">Games</a>
+        ·
+        <a href="#">Account</a>
+        ·
+        <a href="#">Over ons</a>
+    </p>
+    <p class="footer-company-name">IPASS Gameshop © 2019</p>
+</footer>
 
 </body>
 </html>

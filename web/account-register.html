@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IPASS Gameshop</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/main-script.js"></script>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapsable" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">
+                    IPASS Games
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapsable">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home <span class="sr-only">(current)</span></a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li class="active"><a href="account.html">Account</a></li>
+                    <li><a href="about.html">Over ons</a></li>
+                    <!-- check of de gebruiker admin is <li><a href="admin.html">Admin panel</a></li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="login-form">
+            <form action="#" method="post">
+                <h2 class="text-center">Inloggen</h2>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Voornaam" required="required" name="voornaam" id="voornaam">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Achternaam" required="required" name="achternaam" id="achternaam">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Adres" required="required" name="adres" id="adres">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Woonplaats" required="required" name="woonplaats" id="woonplaats">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Postcode" required="required" name="postcode" id="postcode">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Email" required="required" name="email" id="email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Wachtwoord" required="required" name="password1" id="password1">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Wachtwoord bevestiging" required="required" name="password2" id="password2">
+                </div>
+
+                <div class="error-msg"></div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Registreren</button>
+                </div>
+            </form>
+            <p class="text-center"><a href="account.html">Al een account? Inloggen</a></p>
+        </div>
+
+    </div>
+</div>
+
+<footer class="footer-basic-centered">
+    <p class="footer-company-motto">LIVE IN YOUR WORLD, PLAY IN OURS.</p>
+    <p class="footer-links">
+        <a href="#">Home</a>
+        ·
+        <a href="#">Games</a>
+        ·
+        <a href="#">Account</a>
+        ·
+        <a href="#">Over ons</a>
+    </p>
+    <p class="footer-company-name">IPASS Gameshop © 2019</p>
+</footer>
+
+<script>
+    $("form").submit(function(e){
+       e.preventDefault();
+       let errors = validateFormFields();
+
+       if(errors.length === 0) {
+           printErrorMessages(errors);
+           return;
+       }
+
+       let account = {
+
+       }
+    });
+
+    function validateFormFields() {
+        let password1 = $("#password1").val();
+        let password2 = $("#password2").val();
+        let errors = [''];
+        if(password1 !== password2) {
+            errors.push('De wachtwoorden komen niet overeen');
+        }
+        return errors;
+    }
+
+    function printErrorMessages(errors) {
+        let errorHtml = '<div class="alert alert-danger">';
+        errors.each(function(index, error) {
+            errorHtml.append(error);
+        });
+        errorHtml + '</div>';
+        $(".error-msg").html(errorHtml);
+    }
+</script>
+</body>
+</html>
