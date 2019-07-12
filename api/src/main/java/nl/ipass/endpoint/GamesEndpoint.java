@@ -37,10 +37,10 @@ public class GamesEndpoint {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Game nieuweGame(Game game) {
+    public String nieuweGame(Game game) {
         gameService.save(game);
 
-        return game;
+        return "De game is succesvol opgeslagen";
     }
 
 }

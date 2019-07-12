@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>IPASS Gameshop</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
 
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/main-script.js"></script>
@@ -17,7 +17,8 @@
     <nav class="navbar navbar-inverse">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapsable" aria-expanded="false">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#navbar-collapsable" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -64,7 +65,8 @@
             <hr>
             <form action="#" method="post">
                 <div class="form-group row">
-                    <label for="titel" class="col-md-2 col-sm-2 col-form-label">Titel: <span class="required">*</span></label>
+                    <label for="titel" class="col-md-2 col-sm-2 col-form-label">Titel: <span
+                            class="required">*</span></label>
                     <div class="col-md-10 col-sm-10">
                         <input type="text" class="form-control" placeholder="Titel" id="titel" name="titel">
                     </div>
@@ -73,31 +75,35 @@
                 <div class="form-group row">
                     <label for="omschrijving" class="col-md-2 col-sm-2 col-form-label">Omschrijving </label>
                     <div class="col-md-10 col-sm-10">
-                        <textarea name="omschrijving" id="omschrijving" cols="30" rows="5" class="form-control"></textarea>
+                        <textarea name="omschrijving" id="omschrijving" cols="30" rows="5"
+                                  class="form-control"></textarea>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="bestelStatus" class="col-md-2 col-sm-2 col-form-label">Bestelstatus: <span class="required">*</span></label>
+                    <label for="bestelStatus" class="col-md-2 col-sm-2 col-form-label">Bestelstatus: <span
+                            class="required">*</span></label>
                     <div class="col-md-10 col-sm-10">
                         <select name="bestelstatus" id="bestelStatus" class="form-control">
-                            <option value="LEVERBAAR">Leverbaar</option>
-                            <option value="NIETLEVERBAAR">Niet leverbaar</option>
-                            <option value="TIJDELIJKUITVERKOCHT">Tijdelijk uitverkocht</option>
-                            <option value="PREORDER">Pre-order</option>
+                            <option value="leverbaar">Leverbaar</option>
+                            <option value="nietleverbaar">Niet leverbaar</option>
+                            <option value="tijdelijkuitverkocht">Tijdelijk uitverkocht</option>
+                            <option value="preorder">Pre-order</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="prijs" class="col-md-2 col-sm-2 col-form-label">Prijs: <span class="required">*</span></label>
+                    <label for="prijs" class="col-md-2 col-sm-2 col-form-label">Prijs: <span
+                            class="required">*</span></label>
                     <div class="col-md-10 col-sm-10">
-                        <input type="text" class="form-control" placeholder="10.00" id="prijs" name="prijs">
+                        <input type="number" class="form-control" placeholder="10.00" id="prijs" name="prijs">
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="genre" class="col-md-2 col-sm-2 col-form-label">Genre: <span class="required">*</span></label>
+                    <label for="genre" class="col-md-2 col-sm-2 col-form-label">Genre: <span
+                            class="required">*</span></label>
                     <div class="col-md-10 col-sm-10">
                         <select name="genre" id="genre" class="form-control">
                             <option value="Actie">Actie</option>
@@ -118,7 +124,8 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="platform" class="col-md-2 col-sm-2 col-form-label">Platform <span class="required">*</span></label>
+                    <label for="platform" class="col-md-2 col-sm-2 col-form-label">Platform <span
+                            class="required">*</span></label>
                     <div class="col-md-10 col-sm-10">
                         <select name="platform" id="platform" class="form-control">
                             <option value="PlayStation 4">PlayStation 4</option>
@@ -132,11 +139,14 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="voorraad" class="col-md-2 col-sm-2 col-form-label">Voorraad <span class="required">*</span></label>
+                    <label for="voorraad" class="col-md-2 col-sm-2 col-form-label">Voorraad <span
+                            class="required">*</span></label>
                     <div class="col-md-10 col-sm-10">
                         <input type="number" class="form-control" placeholder="0" id="voorraad" name="voorraad">
                     </div>
                 </div>
+
+                <div class="api-msg"></div>
 
                 <input type="submit" class="btn btn-success" value="Game opslaan">
                 <a href="#" class="btn btn-danger">Annuleren</a>
@@ -164,25 +174,43 @@
 </footer>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
+        $(".success-msg").css("display", "none");
+        $(".error-msg").css("display", "none");
         // Reset de formulier velden
-       $(".btn-danger").click(function(){
-           $("form").get(0).reset();
-       }) ;
+        $(".btn-danger").click(function () {
+            $("form").get(0).reset();
+        });
 
+        // Submit het formulier naar de api
+        $("form").submit(function (e) {
+            e.preventDefault();
 
-        // TODO: game opslaan knop werkend maken
-        $("form").submit(function(e) {
-           e.preventDefault();
+            let game = {
+                'bestelStatus': $("#bestelStatus").val(),
+                'genre': $("#genre").val(),
+                'omschrijving': $("#omschrijving").val(),
+                'platform': $("#platform").val(),
+                'prijs': $("#prijs").val(),
+                'titel': $("#titel").val(),
+                'voorraad': $("#voorraad").val()
+            };
 
-           let form = $(this);
-
-           $.ajax({
-               type: "POST",
-               url: apiGamesUrl
-           })
+            $.ajax({
+                type: "POST",
+                url: apiGamesUrl,
+                data: JSON.stringify(game),
+                contentType: 'application/json',
+                success: function (response) {
+                    $(".api-msg").html('<div class="success-msg alert alert-success">'+response.responseText+'</div>');
+                },
+                error: function (response) {
+                    $(".api-msg").html('<div class="success-msg alert alert-success">'+response.responseText+'</div>');
+                }
+            })
         });
     });
+
 </script>
 </body>
 </html>

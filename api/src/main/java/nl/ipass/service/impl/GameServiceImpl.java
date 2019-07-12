@@ -6,7 +6,6 @@ import nl.ipass.definition.Game;
 import nl.ipass.definition.exception.WebAppException;
 import nl.ipass.service.GameService;
 
-import javax.ws.rs.NotFoundException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,7 +17,7 @@ public class GameServiceImpl implements GameService {
     @Override
     public Game save(Game game) {
         try {
-            String query = "INSERT INTO game (publicId, titel, bestelStatus, prijs, genre, platform, voorraad) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO game (publicId, titel, bestelStatus, prijs, genre, platform, voorraad, omschrijving) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement statement = DBConnection.prepareStatement(query);
 
